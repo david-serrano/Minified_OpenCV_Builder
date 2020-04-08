@@ -5,28 +5,28 @@ This is a step by step guide on how to get the source code and tools necessary f
 
 Downloading required packages:
 ------------------------------
-* Download the Android NDK:
+* Download the Android NDK:</br> 
 	ndk-r20 was used as of the time of writing.
 
-* Download the Android SDK:
+* Download the Android SDK:</br> 
 	Scroll down to the section that allows you to download the SDK tools only if you don’t also want Android Studio to be 		installed. 
 
-* Download the OpenCV sources:
+* Download the OpenCV sources:</br> 
 	OpenCV 3.4.3 was used as of the time of writing. (https://github.com/opencv/opencv/releases/tag/3.4.3)
 
-* Download Ant (https://ant.apache.org/bindownload.cgi):
+* Download Ant (https://ant.apache.org/bindownload.cgi):</br> 
 	Ant v1.9.14 was used as of the time of writing.
 
-* Download Ninja (https://github.com/ninja-build/ninja/releases):
+* Download Ninja (https://github.com/ninja-build/ninja/releases):</br> 
 	** Add the folder which contains ninja.exe to your PATH in Environment Variables. Eg: D:\Program\Ninja **
 	
-* Download CMake (https://cmake.org/download/):
+* Download CMake (https://cmake.org/download/):</br> 
  	When installing, select the option to add CMake to the system PATH
 	
-	** Check CMake is in your PATH **
- 		- If it is not, add Add the CMake/bin folder to your PATH Environment Variables. Eg: D:\Programs\CMake\bin*
+	** Check CMake is in your PATH **</br> 
+ 		- If it is not, add Add the CMake/bin folder to your PATH Environment Variables. Eg: D:\Programs\CMake\bin
 
-* Download the build script (build_opencv_android.sh). 
+* Download the build script (build_opencv_android.sh). </br> 
 	If you can’t run shell scripts from your command window, install Gitbash or get WSL from the Windows store.
 
 Setting up the build environment: 
@@ -36,13 +36,13 @@ Setting up the build environment:
 3) Inside the [build directory] create a buildall folder.
 4) Copy the build script inside the buildall folder.
 
-Your  folder structure should look like this:
-    [build directory]
-      |_ opencv 
-      |   |_ the OpenCV source files 
-      |
-      |_ buildall
-          |_ build_opencv_android.sh
+Your  folder structure should look like this:</br>
+    [build directory]</br>
+      |_ opencv </br>
+      | |_ the OpenCV source files</br> 
+      |</br>
+      |_ buildall</br>
+         |_ build_opencv_android.sh</br>
 
 
 Editing the script:
@@ -50,25 +50,26 @@ Editing the script:
 * Open the script with your editor of choice - I like Notepad++.
 
 Inside you will see a few exports at the top, we are interested in the following:
-* ANDROID_NDK
+* ANDROID_NDK</br> 
 	Edit the path in this string to point at your ndk directory.
-* ANDROID_SDK
+* ANDROID_SDK</br> 
 	Edit the path in this string to point at your sdk directory.
-* ANT_EXECUTABLE
-	Edit the path in this string to point at your Ant executable .
+* ANT_EXECUTABLE</br> 
+	Edit the path in this string to point at your Ant executable.</br> 
 	NB: Make sure it is pointing at the ant.bat file.
-* TOOLCHAIN_FILE
+* TOOLCHAIN_FILE</br> 
 	Update the first part of the string path to point at your ndk directory.
 	It is worth checking the path for the cmake file is valid for your version if you’ve not downloaded android-ndk-r20.
 
 Other variables that might need tweaking:
 -----------------------------------------
-* SDK_TARGET
+* SDK_TARGET</br> 
 	This is the target build API.
-* BUILD_TOOLS_VERSION
+* BUILD_TOOLS_VERSION</br> 
 	This is the target Build tools, may need to vary if we’re upgrading to later OpenCV releases.
 
-If you don’t want to build for all supported architectures (see below), comment out the build_opencv [architecture] lines that you don’t want by prepending a #. Also comment out the mkdir [architecture] and the copy_library [architecture] to avoid confusion.
+If you don’t want to build for all supported architectures (see below), comment out the build_opencv [architecture] lines that you don’t want by prepending a #.</br>
+Also comment out the mkdir [architecture] and the copy_library [architecture] to avoid confusion.
 
 Executing the script:
 ---------------------
@@ -87,15 +88,15 @@ Obtaining the binaries:
 
 Other notes:
 ------------
-The script will currently build for the following chip architectures:
-armeabi-v7a
-arm64-v8a
-x86
-x86_64
+The script will currently build for the following chip architectures:</br> 
+armeabi-v7a</br> 
+arm64-v8a</br> 
+x86</br> 
+x86_64</br> 
 
-The following chip architectures are not supported by ndk-r20
-mips
-mips64
-armeabi
+The following chip architectures are not supported by ndk-r20</br> 
+mips</br> 
+mips64</br> 
+armeabi</br> 
 
 If you want to build for these chipsets, I would recommend downloading a prior version of the android NDK (android-ndk-r15c) and updating the relevant paths as detailed in the "Editing the script" section. There is also an example in the commented out section at the bottom of the script file
