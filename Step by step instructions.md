@@ -86,6 +86,12 @@ Obtaining the binaries:
 * Inside this folder you will find subfolders for all the architectures that were built on the run, containing a file named libopencv_java3.so. 
 * Copy these files into the relevant architecture folders in the jniLibs directory of your Android project.
 
+Troubleshooting:
+----------------
+* If there are any issues building the binaries, I would recommend deleting all of the build folders, as existing remains from previous runs will cause it to break.</br> 
+	- delete all build_[architecture] folders from the buildall folder</br> 
+	- delete the top level libraries folder
+
 Other notes:
 ------------
 The script will currently build for the following chip architectures:</br> 
