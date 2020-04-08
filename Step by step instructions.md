@@ -20,7 +20,7 @@ Downloading required packages:
 * Download Ninja (https://github.com/ninja-build/ninja/releases):</br> 
 	** Add the folder which contains ninja.exe to your PATH in Environment Variables. Eg: D:\Program\Ninja **
 	
-* Download CMake (https://cmake.org/download/):</br> 
+* Download CMake (latest .msi or .zip from https://cmake.org/download/):</br> 
  	When installing, select the option to add CMake to the system PATH
 	
 	** Check CMake is in your PATH **</br> 
